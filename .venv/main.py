@@ -10,9 +10,12 @@ class Window(QWidget):
     def __init__(self):
         super().__init__()
 
-        uic.loadUi('UI.ui', self)
         self.setWindowTitle("Рисование кругов")
-        self.pushButton.clicked.connect(self.add_circle)
+        self.setGeometry(0, 0, 500, 500)
+
+        self.button = QPushButton("Нарисовать круг", self)
+        self.button.setGeometry(170, 30, 141, 31)
+        self.button.clicked.connect(self.add_circle)
 
         self.circles = []
 
@@ -21,14 +24,15 @@ class Window(QWidget):
         y = random.randint(50, self.height() - 100)
         diameter = random.randint(20, 100)
 
-        self.circles.append((x, y, diameter))
+        color = QColor(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+        self.circles.append((x, y, diameter, color))
         self.update()
 
     def paintEvent(self, event):
         painter = QPainter(self)
 
-        for x, y, d in self.circles:
-            painter.setBrush(QBrush(QColor("yellow")))
+        for x, y, d, color in self.circles:
+            painter.setBrush(QBrush(color))
             painter.drawEllipse(QRect(x, y, d, d))
 
 
