@@ -24,7 +24,8 @@ class Window(QWidget):
         y = random.randint(50, self.height() - 100)
         diameter = random.randint(20, 100)
 
-        color = QColor(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+        color = QColor(random.randint(0, 255),
+                       random.randint(0, 255), random.randint(0, 255))
         self.circles.append((x, y, diameter, color))
         self.update()
 
