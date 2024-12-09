@@ -1,6 +1,5 @@
 import sys
 import random
-from PyQt6 import uic
 from PyQt6.QtWidgets import QApplication, QWidget, QPushButton
 from PyQt6.QtGui import QPainter, QBrush, QColor
 from PyQt6.QtCore import QRect
